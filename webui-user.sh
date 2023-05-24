@@ -11,7 +11,7 @@
 
 # Commandline arguments for webui.py, for example: export COMMANDLINE_ARGS="--medvram --opt-split-attention"
 export CUDA_VISIBLE_DEVICES=-1
-export COMMANDLINE_ARGS="--use-cpu all --no-half --precision full --skip-torch-cuda-test"
+export COMMANDLINE_ARGS="--use-cpu all --no-half --precision full --skip-torch-cuda-test --listen"
 
 # python3 executable
 #python_cmd="python3"
