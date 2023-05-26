@@ -8,7 +8,7 @@ import numpy as np
 from modules import modelloader, paths, deepbooru_model, devices, images, shared
 
 re_special = re.compile(r'([\\()])')
-
+github = os.environ.get('GITHUB_MIRROR', "github.com")
 
 class DeepDanbooru:
     def __init__(self):
@@ -20,7 +20,7 @@ class DeepDanbooru:
 
         files = modelloader.load_models(
             model_path=os.path.join(paths.models_path, "torch_deepdanbooru"),
-            model_url='https://github.com/AUTOMATIC1111/TorchDeepDanbooru/releases/download/v1/model-resnet_custom_v3.pt',
+            model_url=f'https://{github}/AUTOMATIC1111/TorchDeepDanbooru/releases/download/v1/model-resnet_custom_v3.pt',
             ext_filter=[".pt"],
             download_name='model-resnet_custom_v3.pt',
         )

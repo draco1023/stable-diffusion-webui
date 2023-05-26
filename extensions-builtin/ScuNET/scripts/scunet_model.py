@@ -1,3 +1,4 @@
+import os
 import os.path
 import sys
 import traceback
@@ -15,14 +16,15 @@ from scunet_model_arch import SCUNet as net
 from modules.shared import opts
 from modules import images
 
+github = os.environ.get('GITHUB_MIRROR', "github.com")
 
 class UpscalerScuNET(modules.upscaler.Upscaler):
     def __init__(self, dirname):
         self.name = "ScuNET"
         self.model_name = "ScuNET GAN"
         self.model_name2 = "ScuNET PSNR"
-        self.model_url = "https://github.com/cszn/KAIR/releases/download/v1.0/scunet_color_real_gan.pth"
-        self.model_url2 = "https://github.com/cszn/KAIR/releases/download/v1.0/scunet_color_real_psnr.pth"
+        self.model_url = f"https://{github}/cszn/KAIR/releases/download/v1.0/scunet_color_real_gan.pth"
+        self.model_url2 = f"https://{github}/cszn/KAIR/releases/download/v1.0/scunet_color_real_psnr.pth"
         self.user_path = dirname
         super().__init__()
         model_paths = self.find_models(ext_filter=[".pth"])

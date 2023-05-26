@@ -9,6 +9,7 @@ from PIL import Image, ImageDraw
 GREEN = "#0F0"
 BLUE = "#00F"
 RED = "#F00"
+github = os.environ.get('GITHUB_MIRROR', "github.com")
 
 
 def crop_image(im, settings):
@@ -295,7 +296,7 @@ def is_square(w, h):
 
 
 def download_and_cache_models(dirname):
-  download_url = 'https://github.com/opencv/opencv_zoo/blob/91fb0290f50896f38a0ab1e558b74b16bc009428/models/face_detection_yunet/face_detection_yunet_2022mar.onnx?raw=true'
+  download_url = f'https://{github}/opencv/opencv_zoo/raw/master/models/face_detection_yunet/face_detection_yunet_2022mar.onnx'
   model_file_name = 'face_detection_yunet.onnx'
 
   if not os.path.exists(dirname):

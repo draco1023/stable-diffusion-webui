@@ -15,7 +15,8 @@ from modules.paths import models_path
 # I am making a choice to include some files from codeformer to work around this issue.
 model_dir = "Codeformer"
 model_path = os.path.join(models_path, model_dir)
-model_url = 'https://github.com/sczhou/CodeFormer/releases/download/v0.1.0/codeformer.pth'
+github = os.environ.get('GITHUB_MIRROR', "github.com")
+model_url = f'https://{github}/sczhou/CodeFormer/releases/download/v0.1.0/codeformer.pth'
 
 have_codeformer = False
 codeformer = None

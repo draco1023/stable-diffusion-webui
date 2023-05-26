@@ -1,4 +1,5 @@
 import collections
+import os
 import os.path
 import sys
 import gc
@@ -21,6 +22,7 @@ from modules.timer import Timer
 
 model_dir = "Stable-diffusion"
 model_path = os.path.abspath(os.path.join(paths.models_path, model_dir))
+github = os.environ.get('GITHUB_MIRROR', "github.com")
 
 checkpoints_list = {}
 checkpoint_alisases = {}
@@ -361,10 +363,10 @@ def enable_midas_autodownload():
         midas.api.ISL_PATHS[k] = os.path.join(midas_path, file_name)
 
     midas_urls = {
-        "dpt_large": "https://github.com/intel-isl/DPT/releases/download/1_0/dpt_large-midas-2f21e586.pt",
-        "dpt_hybrid": "https://github.com/intel-isl/DPT/releases/download/1_0/dpt_hybrid-midas-501f0c75.pt",
-        "midas_v21": "https://github.com/AlexeyAB/MiDaS/releases/download/midas_dpt/midas_v21-f6b98070.pt",
-        "midas_v21_small": "https://github.com/AlexeyAB/MiDaS/releases/download/midas_dpt/midas_v21_small-70d6b9c8.pt",
+        "dpt_large": f"https://{github}/intel-isl/DPT/releases/download/1_0/dpt_large-midas-2f21e586.pt",
+        "dpt_hybrid": f"https://{github}/intel-isl/DPT/releases/download/1_0/dpt_hybrid-midas-501f0c75.pt",
+        "midas_v21": f"https://{github}/AlexeyAB/MiDaS/releases/download/midas_dpt/midas_v21-f6b98070.pt",
+        "midas_v21_small": f"https://{github}/AlexeyAB/MiDaS/releases/download/midas_dpt/midas_v21_small-70d6b9c8.pt",
     }
 
     midas.api.load_model_inner = midas.api.load_model

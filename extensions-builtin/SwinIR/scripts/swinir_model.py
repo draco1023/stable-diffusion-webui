@@ -15,12 +15,12 @@ from modules.upscaler import Upscaler, UpscalerData
 
 
 device_swinir = devices.get_device_for('swinir')
-
+github = os.environ.get('GITHUB_MIRROR', "github.com")
 
 class UpscalerSwinIR(Upscaler):
     def __init__(self, dirname):
         self.name = "SwinIR"
-        self.model_url = "https://github.com/JingyunLiang/SwinIR/releases/download/v0.0" \
+        self.model_url = f"https://{github}/JingyunLiang/SwinIR/releases/download/v0.0" \
                          "/003_realSR_BSRGAN_DFOWMFC_s64w8_SwinIR" \
                          "-L_x4_GAN.pth "
         self.model_name = "SwinIR 4x"
